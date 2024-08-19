@@ -25,6 +25,7 @@ import OrderHistory from './Component/OrderHistory';
 import Register from './Component/Register';
 import NavbarCategory from './components/Navbar/navbarcategories';
 import Profile from './components/Order/profile';
+// import PrivateRoute from './route'; 
 // import Login from './components/Login';
 // import WishlistPage from './components/profile/wishlist';
 // import CouponsPage from './components/profile/coupons';
@@ -92,23 +93,26 @@ const ScrollToTop = () => {
       <Routes>  
          <Route exact path="/" element={<Home onAddToCart={handleAddToCart}/>} />
          <Route exact path="/home" element={<Home onAddToCart={handleAddToCart}/>} />
-         <Route path="/product/:productId" element={<ProductDetails onAddToCart={handleAddToCart}/>} />
+         <Route path="/login" element={<Login  />} />
+         <Route path="/register" element={<Register  />} />
+
+          <Route path="/product/:productId" element={<ProductDetails onAddToCart={handleAddToCart}/>} />
          <Route path="/cart" element={<AddToCartPage cartItems={cartItems} onAddToCart={handleAddToCart}/>}  onRemove={handleRemoveFromCart} onMoveToWishlist={handleMoveToWishlist}  />
          <Route path="/checkout" element={<CheckoutPage />} />
          <Route path="/checkout/buynow" element={<CheckoutPage />} />
          <Route path="/product-list" element={<ProductList />} />
-         <Route path="/login" element={<Login  />} />
-         <Route path="/register" element={<Register  />} />
          <Route path="/profile/orderHistory" element={<OrderHistory  />} />
          <Route path="/profile" element={<Profile />} />
-         {/* <Route path="/wishlist" element={<WishlistPage />} />
-         <Route path="/coupons" element={<CouponsPage />} />
-         <Route path="/rewards" element={<RewardsPage/>} />
-         <Route path="/notifications" element={<NotificationsPage/>} />
-         <Route path="/help-center" element={<HelpCenterPage/>} />
-         <Route path="/settings" element={<SettingsPage/>} />
-  */}
-  <Route path="/category/:gender/:type/:subtype" element={<NavbarCategory />} />
+         <Route path="/category/:gender/:type/:subtype" element={<NavbarCategory />} />  
+{/* 
+  <Route path="/product/:productId" element={<PrivateRoute element={ProductDetails}  onAddToCart={handleAddToCart}/>} />
+  <Route path="/cart" element={<PrivateRoute element={AddToCartPage} cartItems={cartItems} onAddToCart={handleAddToCart}/>} onRemove={handleRemoveFromCart} onMoveToWishlist={handleMoveToWishlist} />
+  <Route path="/checkout" element={<PrivateRoute element={CheckoutPage} />} />
+  <Route path="/checkout/buynow" element={<PrivateRoute element={CheckoutPage} />} />
+  <Route path="/product-list" element={<PrivateRoute element={ProductList} />} />
+  <Route path="/profile/orderHistory" element={<PrivateRoute element={OrderHistory} />} />
+  <Route path="/profile" element={<PrivateRoute element={Profile} />} />
+  <Route path="/category/:gender/:type/:subtype" element={<PrivateRoute element={NavbarCategory} />} /> */}
 
       </Routes>
          {<Footer />}

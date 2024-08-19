@@ -1020,7 +1020,17 @@ function Register() {
     }
     setErrors(newErrors);
     if (valid) {
+      
       try {
+      //     // Log the registered details to the console
+      // console.log("Registered details:", formData);
+      // Log the registered details to the console
+console.log("Registered details:", formData);
+
+// // Store the registered details in local storage
+// localStorage.setItem('registeredDetails', JSON.stringify(formData));
+
+        
         const response = await axios.post(
           "https://ecommerce-backend-5vf7.onrender.com/api/customerSignup",
           {
